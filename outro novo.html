@@ -10,13 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- RESET E VARIÁVEIS GLOBAIS --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* --- VARIÁVEIS GLOBAIS --- */
         :root {
             --fiskars-orange: #FF6600;
             --bg-dark: #000000;
@@ -26,149 +20,114 @@
             --border-color: #333333;
         }
 
+        /* --- BASE GERAL --- */
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main); 
-            background-color: var(--bg-dark);
-            overflow-x: hidden; 
-            line-height: 1.6;
+            margin: 0; font-family: 'Inter', sans-serif;
+            color: var(--text-main); background-color: var(--bg-dark);
+            overflow-x: hidden; line-height: 1.6;
         }
 
-        h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; margin: 0; }
         
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         /* --- HEADER & NAVEGAÇÃO --- */
         header {
             background-color: rgba(0, 0, 0, 0.95); border-bottom: 1px solid var(--border-color);
-            padding: 15px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);
+            padding: 20px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);
         }
-        .nav-content { 
-            display: flex; justify-content: space-between; align-items: center; 
-            flex-wrap: wrap; gap: 15px;
-        }
-        .logo { 
-            font-family: 'Oswald', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); 
-            font-weight: 700; color: #FFF; letter-spacing: 2px; text-decoration: none;
-        }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: #FFF; letter-spacing: 2px; text-decoration: none;}
         .logo span { color: var(--fiskars-orange); }
         
-        .nav-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap;}
-        .nav-links a.hidden-mobile { color: #FFF; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.3s; text-transform: uppercase;}
-        .nav-links a.hidden-mobile:hover { color: var(--fiskars-orange); }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { color: #FFF; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.3s; text-transform: uppercase;}
+        .nav-links a:hover { color: var(--fiskars-orange); }
         
-        /* BOTÃO DE VOTAÇÃO NO MENU */
+        /* O BOTÃO DE VOTAÇÃO NO MENU */
         .nav-vote-btn {
-            background-color: transparent; color: var(--fiskars-orange);
-            border: 2px solid var(--fiskars-orange); padding: 8px 15px; font-size: clamp(0.8rem, 2vw, 0.9rem);
-            border-radius: 4px; transition: all 0.3s; text-decoration: none; font-weight: bold; text-transform: uppercase;
+            background-color: transparent; color: var(--fiskars-orange) !important;
+            border: 2px solid var(--fiskars-orange); padding: 8px 20px;
+            border-radius: 4px; transition: all 0.3s !important;
         }
-        .nav-vote-btn:hover { background-color: var(--fiskars-orange); color: #000; }
+        .nav-vote-btn:hover { background-color: var(--fiskars-orange); color: #000 !important; }
 
         /* --- HERO SECTION (ZONA DE COMPRA PRINCIPAL) --- */
         .hero {
-            display: flex; align-items: center; justify-content: space-between; gap: 40px;
-            padding: clamp(60px, 8vw, 100px) 20px; 
-            background-image: radial-gradient(circle at 30% center, #1a1a1a 0%, #000 70%);
+            display: flex; align-items: center; justify-content: space-between; gap: 50px;
+            padding: 100px 20px; background-image: radial-gradient(circle at 30% center, #1a1a1a 0%, #000 70%);
             border-bottom: 1px solid var(--border-color);
-            flex-wrap: wrap; /* A magia que faz a imagem descer no telemóvel */
         }
-        .hero-content { flex: 1 1 400px; max-width: 600px; }
-        .hero-img-container { flex: 1 1 400px; text-align: center; }
-        
-        .hero-img { 
-            width: 100%; max-width: 500px; height: auto; object-fit: cover; 
-            border-radius: 12px; border: 1px solid var(--border-color); 
-            box-shadow: 0 20px 50px rgba(255,102,0,0.1); 
-        }
+        .hero-content { flex: 1; max-width: 600px; }
+        .hero-img-container { flex: 1; text-align: right; }
+        .hero-img { width: 100%; max-width: 500px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 20px 50px rgba(255,102,0,0.1); }
         
         .tag { display: inline-block; background: var(--border-color); color: #FFF; padding: 6px 15px; font-size: 0.8rem; font-weight: bold; border-radius: 20px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;}
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; color: #FFF;}
+        .hero h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; color: #FFF;}
         .hero h1 span { color: var(--fiskars-orange); }
-        .hero p { color: var(--text-muted); font-size: clamp(1rem, 2vw, 1.1rem); margin-bottom: 40px; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px; }
         
         /* PREÇO ESTRATÉGICO */
-        .price-box { margin-bottom: 30px; display: flex; align-items: baseline; gap: 15px; flex-wrap: wrap;}
-        .price-new { color: var(--fiskars-orange); font-size: clamp(2.5rem, 5vw, 3.5rem); font-family: 'Oswald', sans-serif; font-weight: 700; line-height: 1;}
-        .price-old { text-decoration: line-through; color: #666; font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: bold;}
+        .price-box { margin-bottom: 30px; display: flex; align-items: baseline; gap: 15px;}
+        .price-new { color: var(--fiskars-orange); font-size: 3.5rem; font-family: 'Oswald', sans-serif; font-weight: 700; line-height: 1;}
+        .price-old { text-decoration: line-through; color: #666; font-size: 1.5rem; font-weight: bold;}
         .price-discount { background: #CC0000; color: white; padding: 4px 10px; font-size: 0.9rem; font-weight: bold; border-radius: 4px;}
 
         .btn-buy {
             display: inline-block; background-color: var(--fiskars-orange); color: #000;
-            padding: 20px 40px; font-size: clamp(1rem, 2vw, 1.2rem); font-family: 'Oswald', sans-serif;
+            padding: 20px 50px; font-size: 1.2rem; font-family: 'Oswald', sans-serif;
             text-decoration: none; font-weight: bold; border-radius: 4px; text-transform: uppercase;
-            border: none; cursor: pointer; transition: all 0.3s; width: 100%; max-width: 350px; text-align: center;
+            border: none; cursor: pointer; transition: all 0.3s;
         }
         .btn-buy:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4); }
 
         /* UPSELL */
         .upsell-box {
             margin-top: 25px; padding: 20px; border: 1px dashed #555; border-radius: 8px;
-            display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.03); max-width: 400px;
+            display: inline-flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.03); max-width: 400px;
         }
-        .upsell-box input[type="checkbox"] { accent-color: var(--fiskars-orange); width: 24px; height: 24px; cursor: pointer; flex-shrink: 0;}
-        .upsell-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.4;}
+        .upsell-box input[type="checkbox"] { accent-color: var(--fiskars-orange); width: 24px; height: 24px; cursor: pointer; }
+        .upsell-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.4;}
         .upsell-text strong { color: #FFF; }
 
-        /* --- FEATURES SECTION --- */
-        .features { padding: clamp(60px, 8vw, 100px) 20px; background-color: var(--bg-card); text-align: center;}
-        .features h2 { font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 60px; }
-        
-        /* Grid fluida perfeita para qualquer ecrã */
-        .features-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; max-width: 1200px; margin: 0 auto;
-        }
-        .feature-card { text-align: left; padding: 30px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-dark); transition: transform 0.3s;}
-        .feature-card:hover { transform: translateY(-5px); border-color: var(--fiskars-orange);}
-        .feature-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        /* --- FEATURES SECTION (FUNCIONALIDADES) --- */
+        .features { padding: 100px 20px; background-color: var(--bg-card); text-align: center;}
+        .features h2 { font-size: 2.5rem; margin-bottom: 60px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto;}
+        .feature-card { text-align: left; padding: 30px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-dark); }
+        .feature-icon { font-size: 2.5rem; color: var(--fiskars-orange); margin-bottom: 20px; }
         .feature-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
         .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* --- BANNER DE VOTAÇÃO --- */
+        /* --- BANNER DE VOTAÇÃO (LINK PARA O TEU OUTRO HTML) --- */
         .vote-banner {
             background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
             border-top: 2px solid var(--fiskars-orange); border-bottom: 2px solid var(--fiskars-orange);
-            padding: clamp(60px, 8vw, 80px) 20px; text-align: center;
+            padding: 80px 20px; text-align: center;
             background-image: linear-gradient(rgba(255, 102, 0, 0.05) 1px, transparent 1px),
             linear-gradient(90deg, rgba(255, 102, 0, 0.05) 1px, transparent 1px);
             background-size: 30px 30px;
         }
-        .vote-banner h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 20px; }
-        .vote-banner p { color: var(--text-muted); max-width: 700px; margin: 0 auto 40px auto; font-size: clamp(1rem, 2vw, 1.2rem); }
+        .vote-banner h2 { font-size: 3rem; margin-bottom: 20px; }
+        .vote-banner p { color: var(--text-muted); max-width: 700px; margin: 0 auto 40px auto; font-size: 1.2rem; }
         
         .btn-vote-huge {
             display: inline-block; background-color: rgba(255,102,0,0.1); color: var(--fiskars-orange);
-            border: 3px solid var(--fiskars-orange); padding: 20px 40px; font-size: clamp(1.2rem, 3vw, 1.5rem);
+            border: 3px solid var(--fiskars-orange); padding: 20px 50px; font-size: 1.5rem;
             font-family: 'Oswald', sans-serif; text-decoration: none; font-weight: bold;
             border-radius: 4px; text-transform: uppercase; transition: all 0.3s;
-            width: 100%; max-width: 400px;
         }
         .btn-vote-huge:hover { background-color: var(--fiskars-orange); color: #000; box-shadow: 0 0 40px rgba(255,102,0,0.5); transform: scale(1.05); }
 
         /* --- FOOTER --- */
         footer { background-color: var(--bg-dark); padding: 60px 20px 30px 20px; border-top: 1px solid var(--border-color); }
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 40px; max-width: 1200px; margin: 0 auto 40px auto; 
-        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 40px auto; }
         .footer-col h3 { font-size: 1.2rem; color: #FFF; margin-bottom: 20px; }
         .footer-col ul { list-style: none; padding: 0; margin: 0; }
         .footer-col ul li { margin-bottom: 10px; }
         .footer-col ul li a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
         .footer-col ul li a:hover { color: var(--fiskars-orange); }
         .footer-bottom { text-align: center; color: #555; padding-top: 30px; border-top: 1px solid #222; font-size: 0.9rem; }
-
-        /* --- MEDIA QUERIES PARA MOBILE EXTREMO --- */
-        @media (max-width: 768px) {
-            .nav-links a.hidden-mobile { display: none; } /* Esconde texto extra no menu para o botão de voto respirar */
-            .hero { text-align: center; justify-content: center; }
-            .hero-content { display: flex; flex-direction: column; align-items: center; text-align: center; }
-            .price-box { justify-content: center; }
-            .upsell-box { text-align: left; } /* Mantém a checkbox alinhada à esquerda mesmo no telemóvel */
-        }
     </style>
 </head>
 <body>
@@ -177,7 +136,7 @@
         <div class="container nav-content">
             <a href="#" class="logo">FISKARS <span>TERRAIN</span></a>
             <nav class="nav-links">
-                <a href="#funcionalidades" class="hidden-mobile">Funcionalidades</a>
+                <a href="#funcionalidades">Funcionalidades</a>
                 <a href="votacao.html" class="nav-vote-btn">Configurador 2027 ➔</a>
             </nav>
         </div>
@@ -239,7 +198,7 @@
             <h2>Ajude a Criar a Edição de 2027</h2>
             <p>O desenvolvimento da próxima geração Fiskars Terrain já começou. Queremos que os nossos utilizadores profissionais escolham a nova cor tática e o formato do chassi. A sua opinião molda a nossa engenharia.</p>
             
-            <a href="votacao.html" class="btn-vote-huge">Entrar no Configurador</a>
+            <a href="votacao.html" class="btn-vote-huge">Entrar no Configurador e Votar</a>
         </div>
     </section>
 
