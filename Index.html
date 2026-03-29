@@ -25,7 +25,7 @@
         html { scroll-behavior: smooth; }
 
         * {
-            box-sizing: border-box; /* Fundamental para responsividade */
+            box-sizing: border-box; 
         }
 
         body {
@@ -210,10 +210,10 @@
                 position: relative; left: auto; top: auto; width: 100%; 
                 margin-top: 15px; order: 3; transform: none !important; opacity: 1 !important; visibility: visible !important; 
                 display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px;
-                -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
-                scrollbar-width: none; /* Esconde scrollbar Firefox */
+                -webkit-overflow-scrolling: touch; 
+                scrollbar-width: none; 
             }
-            .nav-top::-webkit-scrollbar { display: none; } /* Esconde scrollbar Chrome/Safari */
+            .nav-top::-webkit-scrollbar { display: none; } 
             .primary-nav a { white-space: nowrap; font-size: 13px;}
             
             .nav-center { display: none !important; } 
@@ -222,11 +222,453 @@
             
             .trust-badges { flex-direction: column; align-items: flex-start; gap: 12px; }
             
-            /* Ajuste para imagens dos Gifs */
             #product-gifs > div { display: flex; flex-direction: column; gap: 20px; }
             
-            /* Ajuste de Especificações Técnicas */
             #specs > div { grid-template-columns: 1fr; }
         }
     </style>
 </head>
+<body>
+
+    <header class="site-header" id="mainHeader">
+        <div class="header-main">
+            <div class="logo-container">
+                <a href="#" class="logo">ESAD WORKSHOP AI®</a>
+            </div>
+            
+            <nav class="primary-nav nav-top">
+                <a href="#hero" class="active">Power Tools</a>
+                <a href="#store">A Coluna</a>
+                <a href="#product-gifs">Em Ação</a> 
+                <a href="#deep-dive">Destaques</a>
+                <a href="#gallery">Galeria</a>
+                <a href="#specs">Especificações</a>
+                <a href="#reviews">Opiniões</a>
+                <a href="#contactos">Contactos</a>
+            </nav>
+
+            <nav class="primary-nav nav-center">
+                <a href="#hero" class="active">Power Tools</a>
+                <a href="#store">A Coluna</a>
+                <a href="#product-gifs">Em Ação</a> 
+                <a href="#deep-dive">Destaques</a>
+                <a href="#gallery">Galeria</a>
+                <a href="#specs">Especificações</a>
+                <a href="#reviews">Opiniões</a>
+                <a href="#contactos">Contactos</a>
+            </nav>
+
+            <div class="header-actions">
+                <button id="headerCartBtn" class="header-cart-btn" aria-label="Abrir Carrinho">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span id="cartBadge" class="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="breadcrumb-bar">
+            <a href="#">Homepage</a> <span class="separator">&gt;</span> <span class="current" style="color: #777;">Power Tools</span>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1 class="animate-up"></h1>
+                <p class="animate-up"></p>
+            </div>
+            <img src="" alt="" class="hero-image animate-up">
+        </section>
+
+        <section id="store" class="store-section pattern-bg">
+            <div class="product-gallery animate-up">
+                
+                <div class="main-image-wrapper">
+                    <button class="nav-arrow left" onclick="prevImage()">&#10094;</button>
+                    <img id="mainProductImage" src="thumb-4.png" alt="Fiskars Clip-On Speaker" class="zoomable">
+                    <button class="nav-arrow right" onclick="nextImage()">&#10095;</button>
+                </div>
+
+                <div class="thumbnail-strip">
+                    <img class="thumb active-thumb" src="thumb-4.png" onclick="changeImage(0)" alt="thumb-4.png">
+                    <img class="thumb" src="img-4.png" onclick="changeImage(1)" alt="img-4.png">
+                    <img class="thumb" src="img-3.png" onclick="changeImage(2)" alt="Thumb 3">
+                    <img class="thumb" src="img.png" onclick="changeImage(3)" alt="Thumb 4">
+                    <img class="thumb" src="imagem7.png" onclick="changeImage(4)" alt="Thumb 5">
+                </div>
+            </div>
+
+            <div class="product-details animate-up">
+                <span class="product-badge">Edição Limitada</span>
+                <h1 class="product-title">Fiskars® Clip-On Terrain</h1>
+                
+                <div class="product-rating">
+                    <span class="stars-icon">★★★★★</span>
+                    <span>4.9 (128 Avaliações Verificadas)</span>
+                </div>
+
+                <div class="stock-pulse">
+                    <div class="pulse-dot"></div>
+                    Apenas 14 unidades em stock
+                </div>
+
+                <div class="product-price">69<span>,90€</span></div>
+                
+                <ul class="product-description-list">
+                    <li><strong>Design Integrado:</strong> Mosquetão ergonómico para fixação rápida no cinto ou mochila.</li>
+                    <li><strong>100% à Prova de Água (IP67):</strong> Totalmente submersível e imune a poeiras e lama.</li>
+                    <li><strong>Hardware Tátil:</strong> Botões de alta resposta revestidos a silicone para uso com luvas.</li>
+                    <li><strong>Bateria para o Dia Todo:</strong> Até 12 horas de autonomia com bateria de iões de lítio.</li>
+                </ul>
+
+                <button id="addToCartBtn" class="buy-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    ADICIONAR AO CARRINHO
+                </button>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        Envio em 24h
+                    </div>
+                    <div class="trust-badge">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        3 Anos Garantia
+                    </div>
+                    <div class="trust-badge">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        Pagamento Seguro
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="product-gifs" class="info-section">
+            <h2 class="animate-up">O Produto em Ação</h2>
+            <p class="animate-up" style="color: var(--text-muted); margin-top: -10px; margin-bottom: 30px;">Vê como a nossa coluna se comporta no mundo real.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;" class="animate-up">
+                <div><img src="image-05.gif" alt="Animação 1" class="zoomable" style="width: 100%; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.5);"></div>
+                <div><img src="imagem6.gif" alt="Animação 2" class="zoomable" style="width: 100%; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.5);"></div>
+            </div>
+        </section>
+
+        <section id="deep-dive" class="info-section pattern-bg">
+            <div class="feature-grid">
+                <div class="feature-card animate-up">
+                    <img src="imagem8.png" alt="Clip-on" class="zoomable">
+                    <h3>Prende em qualquer lado</h3>
+                    <p>O mosquetão integrado no design permite-te fixar a coluna na mochila, no cinto ou em qualquer estrutura com um simples clique.</p>
+                </div>
+                <div class="feature-card animate-up" style="transition-delay: 0.1s;">
+                    <img src="imagem10.png" alt="Bateria" class="zoomable">
+                    <h3>Bateria para todo o dia</h3>
+                    <p>Até 12 horas de autonomia contínua. Carrega facilmente com qualquer cabo USB-C, sem necessidade de transformadores pesados.</p>
+                </div>
+                <div class="feature-card animate-up" style="transition-delay: 0.2s;">
+                    <img src="imagem11.png" alt="Waterproof" class="zoomable">
+                    <h3>100% à prova dos elementos</h3>
+                    <p>Com certificação IP67, é totalmente à prova de água, poeiras e lama. Podes lavá-la diretamente na torneira depois do trabalho.</p>
+                </div>
+                <div class="feature-card animate-up">
+                    <img src="imagem13.png" alt="Leveza" class="zoomable">
+                    <h3>Leveza e agilidade</h3>
+                    <p>Concebida para não pesar no teu equipamento. Pesa apenas 245 gramas, mantendo um som potente e cristalino.</p>
+                </div>
+                <div class="feature-card animate-up" style="transition-delay: 0.1s;">
+                    <img src="imagem14.png" alt="Controlos" class="zoomable">
+                    <h3>Controlo total com luvas</h3>
+                    <p>Botões de silicone extragrandes e com feedback tátil pronunciado, desenhados para serem operados mesmo com luvas de trabalho calçadas.</p>
+                </div>
+                <div class="feature-card animate-up" style="transition-delay: 0.2s;">
+                    <img src="imagem15.png" alt="Durabilidade" class="zoomable">
+                    <h3>Construção blindada</h3>
+                    <p>Chassi em polímero reforçado absorve impactos e quedas. Construída com os mesmos materiais das ferramentas elétricas Fiskars.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <h2 class="animate-up">Em Qualquer Terreno</h2>
+            <p class="animate-up" style="color: var(--text-muted); margin-top: -5px; margin-bottom: 35px;">Construída para te acompanhar do estaleiro de obras aos trilhos de montanha.</p>
+            <div class="lifestyle-grid animate-up">
+                <img src="galeria1.png" alt="Cenário 1" class="zoomable">
+                <img src="galeria2.png" alt="Cenário 2" class="zoomable">
+                <img src="galeria3.png" alt="Cenário 3" class="zoomable">
+            </div>
+        </section>
+        
+        <section id="specs" class="info-section">
+            <h2 class="animate-up">Especificações Técnicas</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; margin-top: 40px;" class="animate-up">
+                <div style="background-color: var(--bg-card); padding: 40px; border-radius: 8px; border-left: 4px solid var(--fiskars-orange);">
+                    <ul style="padding-left: 20px; color: var(--text-muted); margin: 0; line-height: 2.2; font-size: 0.95rem;">
+                        <li><strong style="color: #fff;">Dimensões:</strong> 140mm (A) x 75mm (L) x 35mm (P)</li>
+                        <li><strong style="color: #fff;">Peso Bruto:</strong> 245g</li>
+                        <li><strong style="color: #fff;">Conectividade:</strong> Bluetooth 5.2 (A2DP, AVRCP)</li>
+                        <li><strong style="color: #fff;">Bateria:</strong> Iões de Lítio 1200mAh (Carga USB-C)</li>
+                        <li><strong style="color: #fff;">Proteção:</strong> Certificação IP67 (Água e Poeiras)</li>
+                        <li><strong style="color: #fff;">Chassi:</strong> Polímero de Alta Densidade c/ Grip</li>
+                    </ul>
+                </div>
+                <img src="image-04.png" alt="Technical breakdown" class="zoomable" style="width: 100%; max-width: 500px; margin: 0 auto; display: block; border-radius: 10px;">
+            </div>
+        </section>
+
+        <section id="reviews" class="info-section pattern-bg">
+            <h2 class="animate-up">Construída para os Duros</h2>
+            <p class="animate-up" style="color: var(--text-muted); margin-top: -5px;">O que dizem os profissionais que já a colocaram à prova.</p>
+            
+            <div class="reviews-grid animate-up">
+                <div class="review-card">
+                    <span class="stars-icon">★★★★★</span>
+                    <p>"Caiu-me do andaime a 3 metros de altura para cima de cimento fresco. Lavei-a com a mangueira e continuou a dar música. Incrível."</p>
+                    <div class="review-author">Miguel Santos <br><span>Empreiteiro Civil</span></div>
+                </div>
+                <div class="review-card">
+                    <span class="stars-icon">★★★★★</span>
+                    <p>"Levo-a sempre na mochila para o BTT. A lama não lhe faz mossa e os botões são perfeitos para carregar mesmo com as luvas sujas."</p>
+                    <div class="review-author">André Costa <br><span>Guia de Montanha</span></div>
+                </div>
+                <div class="review-card">
+                    <span class="stars-icon">★★★★☆</span>
+                    <p>"A bateria dura mesmo os dois dias de trabalho inteiros. O clip é super resistente, prende perfeitamente no cinto das ferramentas."</p>
+                    <div class="review-author">Tiago Almeida <br><span>Carpinteiro</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contactos" class="info-section" style="border-bottom: none; text-align: center;">
+            <h2 class="animate-up">Fale Connosco</h2>
+            <p class="animate-up" style="color: var(--text-muted); margin-top: -5px;">Tem alguma dúvida? A nossa equipa de suporte está pronta a ajudar.</p>
+            
+            <div class="contact-grid animate-up">
+                <div class="contact-item">
+                    <h4>Suporte</h4>
+                    <a href="mailto:suporte@fiskars-audio.pt">suporte@fiskars-audio.pt</a>
+                </div>
+                <div class="contact-item">
+                    <h4>B2B / Empresas</h4>
+                    <a href="mailto:b2b@fiskars-audio.pt">b2b@fiskars-audio.pt</a>
+                </div>
+                <div class="contact-item">
+                    <h4>Linha Direta</h4>
+                    <a href="tel:+351210000000">+351 210 000 000</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Concept product — academic analysis model.<br>Fiskars is a registered trademark of Fiskars Group. Not an official product.</p>
+    </footer>
+
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="lightbox-close-btn" id="lightboxCloseBtn">&times;</span>
+        <img src="" alt="Imagem em destaque" class="lightbox-img" id="lightboxImg">
+    </div>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2>O TEU CARRINHO</h2>
+            <button class="close-cart" id="closeCartBtn">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer"></div>
+        
+        <div class="cart-upsell">
+            <p>Complete o seu equipamento:</p>
+            <div class="upsell-box">
+                <div class="upsell-info">
+                    <span class="upsell-name">Mosquetão Titânio Extra</span>
+                    <span class="upsell-price">+ 14,90€</span>
+                </div>
+                <button class="upsell-btn" onclick="addUpsell()">Adicionar</button>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>TOTAL:</span>
+                <span id="cartTotalValue">0,00€</span>
+            </div>
+            <button class="checkout-button">FINALIZAR COMPRA</button>
+        </div>
+    </div>
+
+    <script>
+        // Galeria Principal
+        const imageList = ['thumb-4.png', 'img-4.png', 'img-3.png', 'img.png', 'imagem7.png'];
+        let currentIndex = 0;
+
+        function updateMainImage(index) {
+            const mainImage = document.getElementById('mainProductImage');
+            mainImage.style.opacity = 0; 
+            setTimeout(() => { mainImage.src = imageList[index]; mainImage.style.opacity = 1; }, 150);
+            const thumbs = document.querySelectorAll('.thumb');
+            thumbs.forEach(thumb => thumb.classList.remove('active-thumb'));
+            thumbs[index].classList.add('active-thumb');
+            currentIndex = index; 
+        }
+
+        function prevImage() { let newIndex = currentIndex - 1; if (newIndex < 0) newIndex = imageList.length - 1; updateMainImage(newIndex); }
+        function nextImage() { let newIndex = currentIndex + 1; if (newIndex >= imageList.length) newIndex = 0; updateMainImage(newIndex); }
+        function changeImage(index) { updateMainImage(index); }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. Observador de Animações
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                    else entry.target.classList.remove('visible');
+                });
+            }, observerOptions);
+            document.querySelectorAll('.animate-up').forEach(el => observer.observe(el));
+
+            // 2. Scroll do Cabeçalho e Menu Activo
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.primary-nav a');
+            const mainHeader = document.getElementById('mainHeader');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) mainHeader.classList.add('scrolled');
+                else mainHeader.classList.remove('scrolled');
+
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= (sectionTop - 150)) current = section.getAttribute('id');
+                });
+
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) current = 'contactos';
+                if (window.scrollY < 100) current = 'hero';
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+                });
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if(href.startsWith('#')) {
+                        e.preventDefault(); 
+                        const targetId = href.substring(1);
+                        if (targetId === 'hero') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+                        const targetSection = document.getElementById(targetId);
+                        if (targetSection) {
+                            const elementPosition = targetSection.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - 80;
+                            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                        }
+                    }
+                });
+            });
+
+            // 3. Lightbox
+            const lightboxModal = document.getElementById('lightboxModal');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
+            const zoomableImages = document.querySelectorAll('.zoomable');
+
+            function openLightbox(imgSrc) { lightboxImg.src = imgSrc; lightboxModal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+            function closeLightbox() { lightboxModal.classList.remove('active'); document.body.style.overflow = 'auto'; setTimeout(() => { lightboxImg.src = ''; }, 300); }
+
+            zoomableImages.forEach(img => { img.addEventListener('click', function() { openLightbox(this.src); }); });
+            lightboxCloseBtn.addEventListener('click', closeLightbox);
+            lightboxModal.addEventListener('click', function(e) { if (e.target === lightboxModal) closeLightbox(); });
+            document.addEventListener('keydown', function(e) { if (e.key === "Escape" && lightboxModal.classList.contains('active')) closeLightbox(); });
+
+            // 4. Lógica do Carrinho
+            const cartOverlay = document.getElementById('cartOverlay');
+            const cartDrawer = document.getElementById('cartDrawer');
+            const closeCartBtn = document.getElementById('closeCartBtn');
+            const addToCartBtn = document.getElementById('addToCartBtn');
+            const headerCartBtn = document.getElementById('headerCartBtn');
+            const cartItemsContainer = document.getElementById('cartItemsContainer');
+            const cartTotalValue = document.getElementById('cartTotalValue');
+            const cartBadge = document.getElementById('cartBadge');
+
+            let cart = [];
+
+            function openCart() { cartOverlay.classList.add('active'); cartDrawer.classList.add('active'); }
+            function closeCart() { cartOverlay.classList.remove('active'); cartDrawer.classList.remove('active'); }
+
+            closeCartBtn.addEventListener('click', closeCart);
+            cartOverlay.addEventListener('click', closeCart);
+            headerCartBtn.addEventListener('click', openCart);
+
+            addToCartBtn.addEventListener('click', () => {
+                const currentImageSrc = document.getElementById('mainProductImage').src;
+                const productId = 'fiskars-speaker'; 
+                const existingProduct = cart.find(item => item.id === productId);
+
+                if (existingProduct) { existingProduct.quantity += 1; existingProduct.image = currentImageSrc; } 
+                else { cart.push({ id: productId, title: "Fiskars® Clip-On Terrain", price: 69.90, image: currentImageSrc, quantity: 1 }); }
+                
+                updateCartUI();
+                openCart();
+            });
+
+            // Função global para o Botão Upsell
+            window.addUpsell = function() {
+                const productId = 'fiskars-carabiner';
+                const existingProduct = cart.find(item => item.id === productId);
+                
+                if (existingProduct) { existingProduct.quantity += 1; } 
+                else { cart.push({ id: productId, title: "Mosquetão Titânio Extra", price: 14.90, image: "imagem8.png", quantity: 1 }); }
+                
+                updateCartUI();
+            }
+
+            window.removeFromCart = function(productId) { cart = cart.filter(item => item.id !== productId); updateCartUI(); };
+
+            function updateCartUI() {
+                cartItemsContainer.innerHTML = '';
+                let total = 0; let totalItems = 0;
+
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 40px; font-weight: 600;">O teu carrinho está vazio.</p>';
+                    cartBadge.classList.remove('show');
+                } else {
+                    cart.forEach((item) => {
+                        total += (item.price * item.quantity);
+                        totalItems += item.quantity;
+                        
+                        const itemHTML = `
+                            <div class="cart-item">
+                                <img src="${item.image}" alt="${item.title}">
+                                <div class="cart-item-details">
+                                    <p class="cart-item-title">${item.title}</p>
+                                    <div class="cart-item-price-wrapper">
+                                        <p class="cart-item-price">${item.price.toFixed(2).replace('.', ',')}€</p>
+                                        <span class="cart-item-quantity">x${item.quantity}</span>
+                                    </div>
+                                </div>
+                                <button class="remove-item-btn" onclick="removeFromCart('${item.id}')" title="Remover">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </button>
+                            </div>
+                        `;
+                        cartItemsContainer.insertAdjacentHTML('beforeend', itemHTML);
+                    });
+                    
+                    cartBadge.innerText = totalItems;
+                    cartBadge.classList.add('show');
+                }
+                
+                cartTotalValue.innerText = total.toFixed(2).replace('.', ',') + '€';
+            }
+            
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>
